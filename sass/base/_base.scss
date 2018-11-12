@@ -1,0 +1,43 @@
+*, 
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+
+html {
+    //this defines what 1rem is
+    font-size: 62.5%; //1rem = 10px  10/16px =62.5%
+
+/* @include respond(phone) {
+    font-size: 50%;  
+}  We don't need this one because the tab-port one will apply*/
+
+@include respond(tab-land) { // width< 1200
+    font-size: 56.25%;  //1rem = 9px 
+}
+
+@include respond(tab-port) { //width < 900  We want the smaller one to apply so we have to put it second
+    font-size: 50%; // 1rem = 8px  =  8/16=  50%
+}
+
+@include respond(big-desktop) {
+    font-size: 75%; //1rem - 12px
+}
+}
+body {
+    
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+}
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
